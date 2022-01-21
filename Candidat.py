@@ -5,7 +5,7 @@ from  tkinter import  ttk
 import  mysql.connector
 #establishing connection
 conn = mysql.connector.connect(
-   user='phpmyadmin', password='djarafat10', host='localhost', database='python_poo')
+   user='root', password='', host='localhost', database='python_poo')
 
 #defining register function
 def register():
@@ -28,7 +28,7 @@ def register():
        cursor = conn.cursor()
        # Preparing SQL query to INSERT a record into the database.
        insert_stmt = (
-           "INSERT INTO jury(numero_table, prenom_s, nom, date_naissance, lieu_naissance, sexe, nationalite, choix_epr_facultative, epreuve_facultative, aptitude_sportive)"
+           "INSERT INTO candidat(numero_table, prenom_s, nom, date_naissance, lieu_naissance, sexe, nationalite, choix_epr_facultative, epreuve_facultative, aptitude_sportive)"
            "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
     #    if gen1==1:
     #     data = (numero_table1, con1,nom1,"Male",lieu_naissance1,sexe1)

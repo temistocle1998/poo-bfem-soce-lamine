@@ -186,7 +186,7 @@ ALTER TABLE `candidat`
 -- AUTO_INCREMENT pour la table `candidat_anonymat`
 --
 ALTER TABLE `candidat_anonymat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `  id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `jury`
