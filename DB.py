@@ -1,3 +1,4 @@
+from msilib.schema import ListBox
 import mysql.connector
 # from mysql.connector import Error
 
@@ -52,6 +53,22 @@ class DB():
             row = cursor.fetchone()
         cursor.close()
         return row
+    
+    def delete(args):
+        sql = "delete from candidat where id = %s"
+    
+    def showCandidat():
+        mysqldb = mysql.connector.connect(host="localhost", user="phpmyadmin", password="djarafat10", database="python_poo")
+        mycursor = mysqldb.cursor()
+        mycursor.execute("SELECT numero_table,prenom_s,nom,date_naissance, lieu_naissance, sexe, nationalite, choix_epr_facultative, epreuve_facultative, aptitude_sportive FROM candidat")
+        records = mycursor.fetchall()
+        print(records)
+
+        for i, (id,stname, course,fee, three, elem, epr, apt, fac, test) in enumerate(records, start=1):
+            listBox.insert("", "end", values=(id, stname, course, fee, three, elem, epr, apt, fac, test))
+            mysqldb.close()
+
+        
 
     def __del__(self):
         if self.connection != None:
