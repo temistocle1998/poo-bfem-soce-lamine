@@ -11,9 +11,9 @@ def GetValue(event):
     row_id = listBox.selection()[0]
     select = listBox.set(row_id)
     e1.insert(0,select['id'])
-    e2.insert(0,select['empname'])
-    e3.insert(0,select['mobile'])
-    e4.insert(0,select['salary'])
+    e2.insert(0,select['prenom'])
+    e3.insert(0,select['nom'])
+    e4.insert(0,select['email'])
 
 
 def Add():
@@ -26,7 +26,7 @@ def Add():
     mycursor=mysqldb.cursor()
 
     try:
-       sql = "INSERT INTO  candidat (id, numero_table, prenom_s, nom, date_naissance, lieu_naissance, sexe, nationalite, choix_epr_facultative, epreuve_facultative, aptitude_sportive) VALUES (%s, %s, %s, %s)"
+       sql = "INSERT INTO  candidat (numero_table, prenom_s, nom, date_naissance, lieu_naissance, sexe, nationalite, choix_epr_facultative, epreuve_facultative, aptitude_sportive) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
        val = (studid,studname,coursename,feee)
        mycursor.execute(sql, val)
        mysqldb.commit()
@@ -138,7 +138,7 @@ Button(root, text="Add",command = Add,height=3, width= 13).place(x=30, y=130)
 Button(root, text="update",command = update,height=3, width= 13).place(x=140, y=130)
 Button(root, text="Delete",command = delete,height=3, width= 13).place(x=250, y=130)
 
-cols = ('id', 'empname', 'mobile','salary')
+cols = ('id', 'prenom', 'nom','email')
 listBox = ttk.Treeview(root, columns=cols, show='headings' )
 
 for col in cols:
